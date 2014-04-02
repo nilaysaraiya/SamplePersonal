@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 20, 2013 2:48:31 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.hibernate.user.Ordercategorydetails" table="ORDERCATEGORYDETAILS">
+        <composite-id name="id" class="com.hibernate.user.OrdercategorydetailsId">
+            <key-property name="categoryid" type="big_decimal">
+                <column name="CATEGORYID" precision="22" scale="0" />
+            </key-property>
+            <key-property name="name" type="string">
+                <column name="NAME" length="100" />
+            </key-property>
+            <key-property name="ingrediants" type="string">
+                <column name="INGREDIANTS" length="100" />
+            </key-property>
+            <key-property name="price" type="big_decimal">
+                <column name="PRICE" precision="22" scale="0" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="ordercategorymaster" class="com.hibernate.user.Ordercategorymaster" update="false" insert="false" fetch="select">
+            <column name="CATEGORYID" precision="22" scale="0" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
